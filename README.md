@@ -75,5 +75,4 @@ ruby path/to/ArtificialCodeReview/app.rb review main
 
 ```
 ruby path/to/ArtificialCodeReview/app.rb help
-
 ```
