@@ -42,7 +42,7 @@ ruby path/to/ArtificialCodeReview/app.rb <ACTION> <OPTIONS...>
 
 Example command:
 ```
-ruby path/to/ArtificialCodeReview/app.rb explain main 
+ruby path/to/ArtificialCodeReview/app.rb explain main
 ```
 
 #### Code Description Generation
@@ -53,6 +53,11 @@ Required option: A comparison SHA or branch name
 
 This feature provides a description of the git diff in the current local git state with a comparison SHA or branch name. This is handy for Pull Request descriptions or commit messages.
 
+Example command:
+```
+ruby path/to/ArtificialCodeReview/app.rb explain main
+```
+
 #### Code Review Generation
 
 Action: `review`
@@ -60,6 +65,11 @@ Action: `review`
 Required option: A comparison SHA or branch name
 
 This feature provides a review of the git diff in the current local git state with a comparison SHA or branch name. This is handy for improving your code before submitting it.
+
+Example command:
+```
+ruby path/to/ArtificialCodeReview/app.rb review main
+```
 
 ### Help
 
