@@ -1,10 +1,18 @@
+# frozen_string_literal: true
+
 require_relative './open_ai_adapter'
+
+# Responsible for providing class methods that return desired code review
 class CodeReviewer
   class << self
-    def easy_fix(diff:, feedback: 'Add a `_` before all the methods')
-      open_ai_conversation = OpenAiAdapter.new(input: diff, instruction: Prompt.easy_fix_diff(feedback))
+    def explain(diff:)
+      messages = [
+        { role: 'system', content: Prompt::EXPLAIN_CHANGES_SYSTEM_ROLE },
+        { role: 'user', content: Prompt::EXPLAIN_CHANGES + diff }
+      ]
 
-      open_ai_conversation.request_edits
+      open_ai_conversation = OpenAiAdapter.new(input: messages)
+      open_ai_conversation.request_chat
     end
   end
 end
