@@ -30,26 +30,40 @@ Once you are in your project, try one of our commands:
 ruby path/to/ArtificialCodeReview/app.rb explain main
 ```
 
-Command format:
-```
-ruby path/to/ArtificialCodeReview/app.rb <ACTION> <OPTIONS...> 
-```
-
 Enjoy!
 
 
 ### Features
 
-#### Code Description Generation
+Command format:
+```
+ruby path/to/ArtificialCodeReview/app.rb <ACTION> <OPTIONS...> 
+```
 
-Example command format:
+Example command:
 ```
 ruby path/to/ArtificialCodeReview/app.rb explain main 
 ```
 
-`explain` This is the name of the action you want Artificial Code Review to perform
+#### Code Description Generation
 
-`main` This is an example of your main branch name that you want to compare your local changes with.
+Action: `explain`
+
+Required option: A comparison SHA or branch name
 
 This feature provides a description of the git diff in the current local git state with a comparison SHA or branch name. This is handy for Pull Request descriptions or commit messages.
 
+#### Code Review Generation
+
+Action: `review`
+
+Required option: A comparison SHA or branch name
+
+This feature provides a review of the git diff in the current local git state with a comparison SHA or branch name. This is handy for improving your code before submitting it.
+
+### Help
+
+```
+ruby path/to/ArtificialCodeReview/app.rb help
+
+```
