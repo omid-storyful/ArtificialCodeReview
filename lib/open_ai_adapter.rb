@@ -1,19 +1,28 @@
-require 'ruby/openai'
+# frozen_string_literal: true
 
+require 'openai'
+
+# Responsible for interfacing with OpenAi
 class OpenAiAdapter
-  Parameters = Struct.new(:model, :input, :instruction)
+  GPT_MODEL = 'gpt-3.5-turbo'
+  STANDARD_TEMPERATURE = 0.3
 
-  EDIT_MODEL = 'text-davinci-edit-001'
-
-  def initialize(input:, instruction:)
-    @parameters = Parameters.new(input: input, instruction: instruction)
-    @client = OpenAI::Client.new(access_token: ENV['OPENAI_ACCESS_TOKEN'])
-    puts @client
+  def initialize(input:)
+    @input = input
+    @client = OpenAI::Client.new(access_token: ENV.fetch('OPENAI_ACCESS_TOKEN', nil))
   end
 
-  def request_edits
-    @parameters.model = EDIT_MODEL
+  def request_chat
+    @client.chat(parameters: chat_input)['choices'][0]['message']['content']
+  end
 
-    @client.edits(parameters: @parameters)
+  private
+
+  def chat_input
+    {
+      model: GPT_MODEL,
+      messages: @input,
+      temperature: STANDARD_TEMPERATURE
+    }
   end
 end

@@ -3,6 +3,6 @@
 source 'https://rubygems.org'
 
 gem 'dotenv'
+gem 'pry'
 gem 'rubocop', require: false
 gem 'ruby-openai'
-gem 'pry'
