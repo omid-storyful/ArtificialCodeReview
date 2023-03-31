@@ -1,4 +1,4 @@
-# Artificial Code Review
+# Review Plz
 
 This AI driven productivity tool seeks to make developer life easier, in the area of code collaboration and review.
 
