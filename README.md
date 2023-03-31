@@ -10,7 +10,7 @@ First, make sure you have Ruby installed. [Resources here](https://www.ruby-lang
 
 Second, clone the repo:
 ```
-$ git clone git@github.com:omid-storyful/ArtificialCodeReview.git
+$ git clone git@github.com:omid-storyful/ReviewPlz.git
 ```
 
 Third, add your OpenAI access token:
